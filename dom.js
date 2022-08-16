@@ -27,13 +27,23 @@
 //   li[i].style.fontWeight = "Bold";
 // }
 //QuerySelector
-var headerTitle = document.querySelector("#header-title");
-console.log(headerTitle);
-headerTitle.innerText = "chamged Item";
-var li = document.querySelectorAll("li");
+// var headerTitle = document.querySelector("#header-title");
+// console.log(headerTitle);
+// headerTitle.innerText = "chamged Item";
+// var li = document.querySelectorAll("li");
+// var secondLi = document.querySelector(".list-group-item:nth-child(2)");
+// console.log(secondLi);
+// secondLi.style.backgroundColor = "green";
+// var thirdLi = document.querySelector(".list-group-item:nth-child(3)");
+// thirdLi.style.color = "white";
+// thirdLi.style.display = "none";
+
 var secondLi = document.querySelector(".list-group-item:nth-child(2)");
 console.log(secondLi);
-secondLi.style.backgroundColor = "green";
-var thirdLi = document.querySelector(".list-group-item:nth-child(3)");
-thirdLi.style.color = "white";
-// thirdLi.style.display = "none";
+secondLi.style.color = "green";
+var li = document.querySelectorAll("li");
+for (let i = 0; i < li.length; i++) {
+  if (i % 2 == 0) {
+    li[i].style.backgroundColor = "green";
+  }
+}
