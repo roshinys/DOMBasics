@@ -14,3 +14,10 @@ var header = document.getElementById("main-header");
 header.style.borderBottom = "3px solid black";
 var addItem = document.getElementById("addItem");
 addItem.style.color = "green";
+var items = document.getElementsByClassName("list-group-item");
+// console.log(items);
+const thirdElement = items[2];
+thirdElement.style.backgroundColor = "green";
+for (let i = 0; i < items.length; i++) {
+  items[i].style.fontWeight = "Bold";
+}
