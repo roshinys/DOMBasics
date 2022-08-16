@@ -21,8 +21,19 @@
 // for (let i = 0; i < items.length; i++) {
 //   items[i].style.fontWeight = "Bold";
 // }
-var li = document.getElementsByTagName("li");
-console.log(li);
-for (let i = 0; i < li.length; i++) {
-  li[i].style.fontWeight = "Bold";
-}
+// var li = document.getElementsByTagName("li");
+// console.log(li);
+// for (let i = 0; i < li.length; i++) {
+//   li[i].style.fontWeight = "Bold";
+// }
+//QuerySelector
+var headerTitle = document.querySelector("#header-title");
+console.log(headerTitle);
+headerTitle.innerText = "chamged Item";
+var li = document.querySelectorAll("li");
+var secondLi = document.querySelector(".list-group-item:nth-child(2)");
+console.log(secondLi);
+secondLi.style.backgroundColor = "green";
+var thirdLi = document.querySelector(".list-group-item:nth-child(3)");
+thirdLi.style.color = "white";
+// thirdLi.style.display = "none";
