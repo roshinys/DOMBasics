@@ -50,74 +50,100 @@
 
 //Traversing the DOM
 //parentNode and ParentElement
-var parent = document.querySelector("#items");
+// var parent = document.querySelector("#items");
 // var node = parent.parentNode;
 // console.log(parent.parentNode.parentNode);
 // node.style.backgroundColor = "#f4f4f4";
 
-var parent = document.querySelector("#items");
-console.log(parent);
-var node = parent.parentElement;
-console.log(parent.parentElement.parentElement);
-node.style.backgroundColor = "#f4f4f4";
+// var parent = document.querySelector("#items");
+// console.log(parent);
+// var node = parent.parentElement;
+// console.log(parent.parentElement.parentElement);
+// node.style.backgroundColor = "#f4f4f4";
 
 //traersing child nodes
-var child = parent.childNodes;
+// var child = parent.childNodes;
 // console.log(child);
-var newChild = parent.children;
-newChild[1].style.backgroundColor = "green";
+// var newChild = parent.children;
+// newChild[1].style.backgroundColor = "green";
 
 // console.log(parent.firstChild);
-console.log(parent.firstElementChild);
-var firstChild = parent.firstElementChild;
-firstChild.innerText = "Hello World";
+// console.log(parent.firstElementChild);
+// var firstChild = parent.firstElementChild;
+// firstChild.innerText = "Hello World";
 
 // console.log(parent.lastChild);
-console.log(parent.lastElementChild);
-var lastChild = parent.lastElementChild;
-lastChild.style.backgroundColor = "yellow";
+// console.log(parent.lastElementChild);
+// var lastChild = parent.lastElementChild;
+// lastChild.style.backgroundColor = "yellow";
 
 //siblings
 //nextsibling
-var itemList = document.querySelector("#items");
+// var itemList = document.querySelector("#items");
 // console.log(itemList.nextSibling);
-console.log(itemList.nextElementSibling);
+// console.log(itemList.nextElementSibling);
 
 //previous sibling
 // console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
-itemList.previousElementSibling.style.color = "green";
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = "green";
 
 //createElement
 
 //create a div
-var newDiv = document.createElement("div");
+// var newDiv = document.createElement("div");
 //create class
-newDiv.className = "hello";
+// newDiv.className = "hello";
 //add it
-newDiv.id = "hello id";
+// newDiv.id = "hello id";
 //add attribute to it
-newDiv.setAttribute("title", "hello title");
+// newDiv.setAttribute("title", "hello title");
 //add text to it
-var newDivText = document.createTextNode("Hello Text");
+// var newDivText = document.createTextNode("Hello Text");
 //add text to new Div
-newDiv.appendChild(newDivText);
+// newDiv.appendChild(newDivText);
 
 //add to DOM
-var container = document.querySelector("header .container");
-var h1 = document.querySelector("header h1");
+// var container = document.querySelector("header .container");
+// var h1 = document.querySelector("header h1");
 
-container.insertBefore(newDiv, h1);
+// container.insertBefore(newDiv, h1);
 
 // console.log(newDiv);
-var newItem = document.createElement("li");
-newItem.className = "list-group-item";
-var newItemText = document.createTextNode("New First Kid");
-newItem.appendChild(newItemText);
+//var newItem = document.createElement("li");
+// newItem.className = "list-group-item";
+// var newItemText = document.createTextNode("New First Kid");
+// newItem.appendChild(newItemText);
 
-var container = document.querySelector("#main #items");
-var firstKid = container.firstElementChild;
+// var container = document.querySelector("#main #items");
+// var firstKid = container.firstElementChild;
 // container.appendChild(newItem);
-container.insertBefore(newItem, firstKid);
-console.log(container);
+// container.insertBefore(newItem, firstKid);
+// console.log(container);
 // console.log(newItem);
+
+var form = document.getElementById("addForm");
+var itemList = document.querySelector("#items");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var newItem = document.getElementById("item").value;
+  var li = document.createElement("li");
+  li.className = "list-group-item";
+  li.appendChild(document.createTextNode(newItem));
+  var deletebtn = document.createElement("button");
+  deletebtn.className = "btn btn-danger btn-sm float-right delete";
+  deletebtn.appendChild(document.createTextNode("edit"));
+  li.appendChild(deletebtn);
+  itemList.appendChild(li);
+  console.log(li);
+});
+
+itemList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    if (confirm("Are You Sure?")) {
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+});
