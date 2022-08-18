@@ -124,6 +124,7 @@
 
 var form = document.getElementById("addForm");
 var itemList = document.querySelector("#items");
+var filter = document.getElementById("filter");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -146,4 +147,20 @@ itemList.addEventListener("click", (e) => {
       itemList.removeChild(li);
     }
   }
+});
+filter.addEventListener("keyup", (e) => {
+  // console.log("start searching");
+  var text = e.target.value.toLowerCase();
+  // console.log(text);
+  var items = itemList.getElementsByTagName("li");
+  // console.log(items);
+  Array.from(items).forEach((item) => {
+    // console.log(item.firstChild.textContent);
+    var itemName = item.firstChild.textContent;
+    if (itemName.toLowerCase().indexOf(text) != -1) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
 });
